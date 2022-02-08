@@ -1,23 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import { Card, CardMedia } from '@mui/material';
+import {makeStyles} from '@mui/styles';
 
-function App() {
+const useStyles = makeStyles({
+  card: {
+    maxWidth: 600,
+    padding: 10,
+    margin: 10
+  }
+})
+
+function App({UserData}) {
+  const {username, imageurl, posts}=UserData;
+  const classes = useStyles();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       {posts.map((post, index) => (
+       <Card 
+         className={classes.card}
+         variant='outlined' 
+         key={index}>
+           <CardMedia
+             component='img'
+             image={imageurl}
+             alt={username}/>
+           {username}: {post}
+        </Card>))}
     </div>
   );
 }

@@ -4,9 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const UserData = {
+  username: 'Thanos',
+  imageurl: 'https://imgix.bustle.com/uploads/image/2021/7/13/9129eba7-d498-4f4e-8ff3-810a7cac3754-f06e8aec-56a6-11e9-a3ae-f2742b367090_image_hires_155003.jpeg?w=349&h=233&fit=max&auto=format%2Ccompress',
+  posts: [
+    "You Should Have Gone For The Head.",
+    'I am Inevitable',
+    'What Did It Cost?'
+  ]
+}
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App UserData={UserData}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
